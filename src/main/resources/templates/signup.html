@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="../Style/sign.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2? family=Poppins:wght@100;200;300;400;600;700&display+swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
+</head>
+< section class="header">
+    <nav>
+        <a href="/index"><img src="/Images/NLPLogo1.png"></a>
+        <div class="Links">
+            <ul>
+                <li><a href="/login">Log in</a></li>
+                <li><a href="/signup">Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="text-box">
+        <h1>Signup</h1>
+    </div>
+    <div class="form">
+        <form action="#" th:action="@{/signup}" th:object="${signupDetails}" method="post">
+            <label for="username">User Name:</label><br>
+            <input type="text" required id="userName" name="userName"  placeholder="Enter the User Name.." th:field="*{username}"><br>
+
+            <label for= "addmissionID">Addmission ID:</label><br>
+            <input type="text" required id="addmissionID" name="addmissionID" placeholder="Enter Addmission ID.." th:field="*{admissionNo}"><br>
+
+            <label for="email">Email:</label><br>
+            <input type="text" required id="email" name="email" placeholder="Enter Email.." th:field="*{email}"><br>
+
+            <label for="password">Password:</label><br>
+            <input type="password" required id="password" name="password" placeholder="Enter a password.." th:field="*{password}"><br>
+            
+            <label for="confirmPassword">Confirm Password:</label><br>
+            <input type="password" required id="confirmPassword" name="confirmPassword" placeholder="Re-enter your password.." th:field="*{confirmPassword}"><br>
+            
+            <input id="regb" type="submit" value="Register">
+        
+        </form>
+        <br>
+    </div>
+    <div class="signimg">
+        <input id="signpng" type="image" src="/Images/signimg.png">
+    </div>
+    <p id="accreg">Already have an account? <a href="/login" style="color:dodgerblue">Login</a>.</p>
+</body>
+</html>

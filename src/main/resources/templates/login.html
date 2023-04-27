@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="../Style/login.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2? family=Poppins:wght@100;200;300;400;600;700&display+swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
+</head>
+<body>
+    <section class="header">
+        <nav>
+            <a href="/index"><img src="/Images/NLPLogo1.png" class="logo"></a>
+            
+            <div class="Links">
+                <ul>
+                    
+                    <li><a href="/login">Log in</a></li>
+                    <li><a href="/signup">Sign Up</a></li>
+                </ul>
+            </div>
+
+        </nav>
+        <div class="formBG">
+            <div class="text-box">
+                <h1>Login</h1>
+            </div>
+            <div class="form">
+                <form action="#" th:action="@{/login}" th:object="${loginDetails}" method="post">
+                    <label for="userName">User Name:</label>
+                    <input type="text" required id="userName" name="userName" placeholder="Enter your User Name here.." th:field="*{username}">
+
+                    <label for="password">Password:</label>
+                    <input type="password" required id="password" name="password" placeholder="Enter your password here.." th:field="*{password}">
+
+                    <input id="logb" type="submit" value="Login">
+                </form>
+                <br>
+                <p id="accreg">Don't have an account yet? <a href="/signup" style="color:dodgerblue">Sign up</a>.</p>
+            </div>
+            <div class="logimg">
+                <input id="logpng" type="image" src="/Images/loginImg.png">
+            </div>
+        </div>
+
+    </section>
+</body>
+</html>

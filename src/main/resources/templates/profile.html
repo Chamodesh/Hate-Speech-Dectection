@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html>
+<head>
+	<title>Profile</title>
+   <style>
+  .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: #1E7DB2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+  /* background-image: url('../Images/WebBackground.jpg'); */
+}
+
+/*.header img {
+  height: 50px;
+}*/
+
+.header h1 {
+  font-size: 28px;
+  margin: 0;
+}
+
+.header input[type="text"] {
+  width: 300px;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 16px;
+  margin-left: 10px;
+}
+.sidebar1 {
+  position: fixed;
+  top: 80px;
+  width: 188px;
+  height: calc(100% - 80px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+  background: #1E7DB2;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0px;
+  left: 0;
+}
+
+.sidebar1 button{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #1E7DB2;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 5px;
+  padding: 10px;
+  transition: all 0.2s ease;
+  width: 91%;
+  height: 57px;
+}
+
+.sidebar1 button:hover{
+  background-color: #1E7DB2;
+  color: #fff;
+}
+
+.sidebar1 button img{
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  vertical-align: middle;
+  flex-shrink: 0; /* added property */
+}
+.article{
+  position: absolute;
+  width: 600px;
+  height: auto;
+  left: 450px;
+  top: 125px;
+  padding: 10px;
+  
+  background: #1E7DB2;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+#card1{
+top: 150px;
+}
+#card2{
+    top: 400px;
+}
+body {
+  background-image: url('../Images/WebBackground.jpg');
+  background-repeat:repeat-y;
+  background-size: cover;
+  background-position: center;
+}
+.dropbtn {
+  background-color: #1E7DB2;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  height: 45px;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+
+
+   </style>
+</head>
+<body>
+	<div class="header">
+		<img src="/Images/NLPLogo1.png" alt="Logo" width="100" height="70">
+		<h1>About Us</h1>
+		
+        <div class="dropdown">
+            
+            <button onclick="myFunction()" class="dropbtn">
+            <img src="/Images/logOut.png" alt="logOut" width="50" height="50">
+            </button>
+            <div id="myDropdown" class="dropdown-content">
+              <a href="/logout">Log Out</a>
+            </div>
+          </div>
+	</div>
+
+    <script>
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+        
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+        </script>
+	
+  <div class="sidebar1">
+		<!-- <ul>
+			<li><img src="home-icon.jpg"> Home</li>
+			<li><img src="addvlogs-icon.jpg"> Add Vlogs</li>
+			<li><img src="profile-icon.jpg"> Profile</li>
+			<li><img src="aboutus-icon.jpg"> About Us</li>
+		</ul> -->
+
+        <a href="/homepage">
+            <button>
+                Feed
+                <img src="/Images/feed.png" class="feedbttn" id="card01">
+            </button>
+        </a>
+
+        <a href="/innovations">
+          <button>
+              Inovation
+              <img src="/Images/innov.png" class="inobttn" id="card02">
+          </button>
+      </a>
+
+      <a href="/complaints">
+          <button>
+              Complaints
+              <img src="/Images/comp.png" class="compbttn" id="card03">
+          </button>
+      </a>
+
+      <a href="/notices">
+          <button>
+              Notices
+              <img src="/Images/notice.png" class="notbttn" id="card04">
+          </button>
+      </a>
+
+      <a href="/clubs">
+          <button>
+              Club & Societies
+              <img src="/Images/clbnst.png" class="notbttn" id="card05">
+          </button>
+      </a>
+
+        <a href="/addvlogs">
+            <button>
+                Add Vlogs
+                <img src="/Images/addvlog.png" class="addvlgbttn" id="card06">
+            </button>
+        </a>
+
+        <a href="/profile">
+            <button>
+                Profile
+                <img src="/Images/profile.png" class="prfbttn" id="card07">
+            </button>
+        </a>
+
+        <a href="/aboutus">
+            <button>
+                About Us
+                <img src="/Images/about.png" class="abtusbttn" id="card08">
+            </button>
+        </a>
+
+    </div>
+
+    <div>
+        
+    </div>
+
+    <div class="content">
+
+      <div class="article" id="card1">
+        
+        <h2 th:text="${vlog.topic}"></h2>
+        <p th:text="${vlog.vlog}"></p>
+        <p th:text="${vlog.username}"></p>
+      </div>
+      
+    </div>
+
+</body>
+</html>
